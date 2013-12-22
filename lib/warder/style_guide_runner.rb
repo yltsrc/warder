@@ -1,5 +1,5 @@
 module Warder
-  # responsible for run style guide validations
+  # responsible for run style guide validation
   class StyleGuideRunner < Runner
     def initialize(options = {})
       @options = options

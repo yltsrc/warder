@@ -9,8 +9,14 @@ Feature: check style guide
     Then warder validates style guide
     Then the exit status should be 0
 
-  Scenario: run warder with enabled style guide option
+  Scenario: run warder with enabled style guide option on invalid file
     Given I have invalid_style_guide file in directory
     When I run `warder --style-guide`
     Then warder validates style guide
     Then the exit status should be 1
+
+  Scenario: run warder with disabled style guide option on invalid file
+    Given I have invalid_style_guide file in directory
+    When I run `warder --no-style-guide`
+    Then warder does nothing
+    Then the exit status should be 0

@@ -2,23 +2,27 @@ module Warder
   # responsible for executing warder tools
   class CLI
     def initialize(options)
-      @options = {}
-      OptionParser.new(options) do |opts|
-        opts.on('-s', '--[no-]style-guide', 'Run style guide validations') do |value|
-          @options[:style_guide] = value
-        end
-      end.parse!
+      @options = options
     end
 
     def perform
-      exit perform_style_guide_validations
+      exit perform_style_guide_validation + perform_magick_numbers_validation
     end
 
     private
 
-    def perform_style_guide_validations
+    def perform_style_guide_validation
       if @options[:style_guide]
         runner = StyleGuideRunner.new(@options)
+        runner.perform
+      else
+        0
+      end
+    end
+
+    def perform_magick_numbers_validation
+      if @options[:magick_numbers]
+        runner = MagickNumbersRunner.new(@options)
         runner.perform
       else
         0

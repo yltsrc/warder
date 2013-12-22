@@ -13,5 +13,5 @@ Given(/^I have (\w+) file in directory$/) do |name|
 end
 
 Then(/^warder does nothing$/) do
-  step "the output should match /.{0}/"
+  step 'the output should match /.{0}/'
 end

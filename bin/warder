@@ -2,6 +2,20 @@
 
 $LOAD_PATH.unshift(File.expand_path('../../lib', __FILE__))
 
+require 'optparse'
 require 'warder'
 
-Warder::CLI.new(ARGV).perform
+options = {}
+OptionParser.new do |opts|
+  desc = 'Run style guide validation'
+  opts.on('-s', '--[no-]style-guide', desc) do |value|
+    options[:style_guide] = value
+  end
+
+  desc = 'Run magick numbers validation'
+  opts.on('-n', '--[no-]magick-numbers', desc) do |value|
+    options[:magick_numbers] = value
+  end
+end.parse!
+
+Warder::CLI.new(options).perform

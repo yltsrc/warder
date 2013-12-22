@@ -1,5 +1,5 @@
 require 'warder/version'
-require 'optparse'
 require 'warder/runner'
 require 'warder/style_guide_runner'
+require 'warder/magick_numbers_runner'
 require 'warder/cli'
