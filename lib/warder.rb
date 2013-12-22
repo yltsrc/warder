@@ -1,5 +1,5 @@
-require "warder/version"
-
-module Warder
-  # Your code goes here...
-end
+require 'warder/version'
+require 'optparse'
+require 'warder/runner'
+require 'warder/style_guide_runner'
+require 'warder/cli'

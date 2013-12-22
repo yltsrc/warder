@@ -1,0 +1,4 @@
+<% std_opts = "--format 'pretty'" %>
+default: <%= std_opts %> --strict features
+ok: <%= std_opts %> --no-color --strict --tags ~@wip features
+wip: <%= std_opts %> --tags @wip:1 --wip features
