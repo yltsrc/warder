@@ -8,7 +8,7 @@ module Warder
     private
 
     def command
-      'mago'
+      "mago #{@options.files}"
     end
 
     def failed?(line)

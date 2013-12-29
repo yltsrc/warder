@@ -10,7 +10,7 @@ module Warder
     private
 
     def command
-      "flog -a -c -g -m ."
+      "flog -a -c -g -m #{@options.files}"
     end
 
     def failed?(line)

@@ -8,7 +8,7 @@ module Warder
     private
 
     def command
-      'rubocop'
+      "rubocop #{@options.files}"
     end
 
     def failed?(line)

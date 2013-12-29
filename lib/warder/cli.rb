@@ -2,7 +2,8 @@ module Warder
   # responsible for executing warder tools
   class CLI
     def initialize(options)
-      @options = options
+      options[:files] = '.' if options[:files].empty?
+      @options = OpenStruct.new(options)
     end
 
     def perform
@@ -16,7 +17,7 @@ module Warder
     private
 
     def perform_style_guide_validation
-      if @options[:style_guide]
+      if @options.style_guide
         runner = StyleGuideRunner.new(@options)
         runner.perform
       else
@@ -25,7 +26,7 @@ module Warder
     end
 
     def perform_magick_numbers_validation
-      if @options[:magick_numbers]
+      if @options.magick_numbers
         runner = MagickNumbersRunner.new(@options)
         runner.perform
       else
@@ -34,7 +35,7 @@ module Warder
     end
 
     def perform_code_duplication_validation
-      if @options[:code_duplication]
+      if @options.code_duplication
         runner = CodeDuplicationRunner.new(@options)
         runner.perform
       else
@@ -43,7 +44,7 @@ module Warder
     end
 
     def perform_code_smells_validation
-      if @options[:code_smells]
+      if @options.code_smells
         runner = CodeSmellsRunner.new(@options)
         runner.perform
       else
@@ -52,7 +53,7 @@ module Warder
     end
 
     def perform_code_complexity_validation
-      if @options[:code_complexity]
+      if @options.code_complexity
         runner = CodeComplexityRunner.new(@options)
         runner.perform
       else

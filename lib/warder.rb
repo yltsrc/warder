@@ -1,3 +1,4 @@
+require 'ostruct'
 require 'warder/version'
 require 'warder/runner'
 require 'warder/style_guide_runner'

@@ -8,7 +8,7 @@ module Warder
     private
 
     def command
-      'reek .'
+      "reek #{@options.files}"
     end
 
     def failed?(line)

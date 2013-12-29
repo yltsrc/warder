@@ -15,6 +15,13 @@ Feature: detects magick numbers
     Then warder detects magick numbers
     Then the exit status should be 1
 
+  Scenario: run warder with enabled magick numbers option on valid file only
+    Given I have valid file in directory
+    And I have invalid_magick_numbers file in directory
+    When I run `warder --magick-numbers valid.rb`
+    Then warder does nothing
+    Then the exit status should be 0
+
   Scenario: run warder with disabled style guide option on invalid file
     Given I have invalid_magick_numbers file in directory
     When I run `warder --no-magick-numbers`

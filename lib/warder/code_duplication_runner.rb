@@ -10,7 +10,7 @@ module Warder
     private
 
     def command
-      "flay -d -m #{FLAY_SCORE} ."
+      "flay -d -m #{FLAY_SCORE} #{@options.files}"
     end
 
     def failed?(line)
