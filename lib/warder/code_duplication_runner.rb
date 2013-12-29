@@ -1,6 +1,6 @@
 module Warder
-  # responsible for run code duplications validation
-  class CodeDuplicationsRunner < Runner
+  # responsible for run code duplication validation
+  class CodeDuplicationRunner < Runner
     FLAY_SCORE = SCORE / 2
 
     def initialize(options = {})

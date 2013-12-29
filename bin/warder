@@ -18,13 +18,18 @@ OptionParser.new do |opts|
   end
 
   desc = 'Run code duplication validation'
-  opts.on('-d', '--[no-]code-duplications', desc) do |value|
-    options[:code_duplications] = value
+  opts.on('-d', '--[no-]code-duplication', desc) do |value|
+    options[:code_duplication] = value
   end
 
   desc = 'Run code smells validation'
   opts.on('-s', '--[no-]code-smells', desc) do |value|
     options[:code_smells] = value
+  end
+
+  desc = 'Run code complexity validation'
+  opts.on('-c', '--[no-]code-complexity', desc) do |value|
+    options[:code_complexity] = value
   end
 end.parse!
 
