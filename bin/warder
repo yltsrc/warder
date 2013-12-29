@@ -16,6 +16,11 @@ OptionParser.new do |opts|
   opts.on('-n', '--[no-]magick-numbers', desc) do |value|
     options[:magick_numbers] = value
   end
+
+  desc = 'Run code duplication validation'
+  opts.on('-d', '--[no-]code-duplications', desc) do |value|
+    options[:code_duplications] = value
+  end
 end.parse!
 
 Warder::CLI.new(options).perform

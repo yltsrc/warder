@@ -6,7 +6,8 @@ module Warder
     end
 
     def perform
-      exit perform_style_guide_validation + perform_magick_numbers_validation
+      exit perform_style_guide_validation + perform_magick_numbers_validation +
+        perform_code_duplication_validation
     end
 
     private
@@ -23,6 +24,15 @@ module Warder
     def perform_magick_numbers_validation
       if @options[:magick_numbers]
         runner = MagickNumbersRunner.new(@options)
+        runner.perform
+      else
+        0
+      end
+    end
+
+    def perform_code_duplication_validation
+      if @options[:code_duplications]
+        runner = CodeDuplicationRunner.new(@options)
         runner.perform
       else
         0

@@ -20,7 +20,8 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'rubocop'
   # spec.add_dependency 'reek'
-  # spec.add_dependency 'flay'
+  spec.add_dependency 'flay'
+  spec.add_dependency 'ruby2ruby'
   # spec.add_dependency 'flog'
   spec.add_dependency 'mago'
 

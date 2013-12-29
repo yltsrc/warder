@@ -14,7 +14,7 @@ module Warder
     def failed?(line)
       match = line.match(/(\d+|no) offence/)
 
-      match && match[0].to_i != 0
+      match && match[1].to_i != 0
     end
   end
 end
