@@ -18,5 +18,13 @@ module Warder
 
       match && match[1].to_f > FLOG_SCORE
     end
+
+    def printable?(line)
+      failed?(line) || total?(line)
+    end
+
+    def total?(line)
+      line.match(/^\s+\d+.\d+\:\sflog.*$/)
+    end
   end
 end

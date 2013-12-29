@@ -7,7 +7,7 @@ module Warder
       puts "executing '#{command}'\n"
       code = 0
       IO.popen(command).each do |line|
-        print line
+        print line if printable?(line)
 
         code = 1 if failed?(line)
       end
@@ -18,6 +18,10 @@ module Warder
 
     def failed?(line)
       false
+    end
+
+    def printable?(line)
+      true
     end
   end
 end

@@ -1,9 +1,9 @@
 language: ruby
 rvm:
-  - 1.9.3
   - 2.0.0
   - 2.1.0
 gemfile:
   - Gemfile
 script:
   - bundle exec rake
+  - bundle exec warder --style-guide --magick-numbers Gemfile Rakefile warder.gemspec bin/ lib/ features/

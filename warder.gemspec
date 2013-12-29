@@ -13,9 +13,9 @@ Gem::Specification.new do |spec|
   spec.homepage      = 'https://github.com/yltsrc/warder'
   spec.license       = 'MIT'
 
-  spec.files         = `git ls-files`.split($/)
-  spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
-  spec.test_files    = spec.files.grep(%r{^(test|spec|features|cucumber)/})
+  spec.files         = `git ls-files`.split($RS)
+  spec.executables   = spec.files.grep(/^bin\/\w+$/) { |f| File.basename(f) }
+  spec.test_files    = spec.files.grep(/^(test|spec|features|cucumber)\//)
   spec.require_paths = ['lib']
 
   spec.add_dependency 'rubocop'
@@ -24,6 +24,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'ruby2ruby'
   spec.add_dependency 'flog'
   spec.add_dependency 'mago'
+  # spec.add_dependency 'sandi_meter'
 
   spec.add_development_dependency 'bundler', '~> 1.3'
   spec.add_development_dependency 'rake'

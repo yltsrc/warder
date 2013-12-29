@@ -7,7 +7,7 @@ require 'warder'
 
 options = {}
 OptionParser.new do |opts|
-  opts.banner = "Usage: warder [options] [dir1 file1 file2 ...]"
+  opts.banner = 'Usage: warder [options] [dir1 file1 file2 ...]'
 
   desc = 'Run style guide validation'
   opts.on('-g', '--[no-]style-guide', desc) do |value|
