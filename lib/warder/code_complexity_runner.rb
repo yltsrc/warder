@@ -14,9 +14,9 @@ module Warder
     end
 
     def failed?(line)
-      match = line.match(/^\s+(\d+.\d):\s+(.*)$/)
+      match = line.match(/^\s+(\d+.\d+)\:\s[^f][^l][^o][^g].*$/)
 
-      match && match[1].to_f > FLOG_SCORE && !match[2].match(/^flog/)
+      match && match[1].to_f > FLOG_SCORE
     end
   end
 end
