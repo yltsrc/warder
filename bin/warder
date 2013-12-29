@@ -7,6 +7,8 @@ require 'warder'
 
 options = {}
 OptionParser.new do |opts|
+  opts.banner = "Usage: warder [options] [dir1 file1 file2 ...]"
+
   desc = 'Run style guide validation'
   opts.on('-g', '--[no-]style-guide', desc) do |value|
     options[:style_guide] = value
@@ -30,6 +32,11 @@ OptionParser.new do |opts|
   desc = 'Run code complexity validation'
   opts.on('-c', '--[no-]code-complexity', desc) do |value|
     options[:code_complexity] = value
+  end
+
+  opts.on('-v', '--version', 'Show version') do |value|
+    puts Warder::VERSION
+    exit 0
   end
 end.parse!
 
