@@ -1,6 +1,6 @@
 module Warder
-  # responsible for run magick numbers validation
-  class CodeDuplicationRunner < Runner
+  # responsible for run code duplications validation
+  class CodeDuplicationsRunner < Runner
     FLAY_SCORE = SCORE / 2
 
     def initialize(options = {})

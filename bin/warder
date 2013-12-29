@@ -8,18 +8,23 @@ require 'warder'
 options = {}
 OptionParser.new do |opts|
   desc = 'Run style guide validation'
-  opts.on('-s', '--[no-]style-guide', desc) do |value|
+  opts.on('-g', '--[no-]style-guide', desc) do |value|
     options[:style_guide] = value
   end
 
   desc = 'Run magick numbers validation'
-  opts.on('-n', '--[no-]magick-numbers', desc) do |value|
+  opts.on('-m', '--[no-]magick-numbers', desc) do |value|
     options[:magick_numbers] = value
   end
 
   desc = 'Run code duplication validation'
   opts.on('-d', '--[no-]code-duplications', desc) do |value|
     options[:code_duplications] = value
+  end
+
+  desc = 'Run code smells validation'
+  opts.on('-s', '--[no-]code-smells', desc) do |value|
+    options[:code_smells] = value
   end
 end.parse!
 

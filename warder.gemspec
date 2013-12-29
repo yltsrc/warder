@@ -19,7 +19,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   spec.add_dependency 'rubocop'
-  # spec.add_dependency 'reek'
+  spec.add_dependency 'reek'
   spec.add_dependency 'flay'
   spec.add_dependency 'ruby2ruby'
   # spec.add_dependency 'flog'
