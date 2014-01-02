@@ -6,13 +6,13 @@ Feature: detects code smells
   Scenario: run warder with enabled code smells option
     Given I have valid file in directory
     When I run `warder --code-smells`
-    Then warder detects code smells
+    Then warder detects code smells issues
     Then the exit status should be 0
 
   Scenario: run warder with enabled code smells option on invalid file
     Given I have invalid_code_smells file in directory
     When I run `warder --code-smells`
-    Then warder detects code smells
+    Then warder detects code smells issues
     Then the exit status should be 1
 
   Scenario: run warder with enabled code smells option on valid file only

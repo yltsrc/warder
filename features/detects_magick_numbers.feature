@@ -6,13 +6,13 @@ Feature: detects magick numbers
   Scenario: run warder with enabled magick numbers option
     Given I have valid file in directory
     When I run `warder --magick-numbers`
-    Then warder detects magick numbers
+    Then warder detects magick numbers issues
     Then the exit status should be 0
 
   Scenario: run warder with enabled magick numbers option on invalid file
     Given I have invalid_magick_numbers file in directory
     When I run `warder --magick-numbers`
-    Then warder detects magick numbers
+    Then warder detects magick numbers issues
     Then the exit status should be 1
 
   Scenario: run warder with enabled magick numbers option on valid file only

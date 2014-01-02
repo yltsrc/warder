@@ -6,13 +6,13 @@ Feature: detects code complexity
   Scenario: run warder with enabled code complexity option
     Given I have valid file in directory
     When I run `warder --code-complexity`
-    Then warder detects code complexity
+    Then warder detects code complexity issues
     Then the exit status should be 0
 
   Scenario: run warder with enabled code complexity option on invalid file
     Given I have invalid_code_complexity file in directory
     When I run `warder --code-complexity`
-    Then warder detects code complexity
+    Then warder detects code complexity issues
     Then the exit status should be 1
 
   Scenario: run warder with enabled code complexity option on valid file only

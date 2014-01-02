@@ -1,8 +1,7 @@
-Then(/^warder validates style guide$/) do
-  executing_rubocop_output = "executing 'rubocop .'"
-  success_rubocop_output = `cd spec/fixtures/ && rubocop #{@filename}`
-  step "the output should contain \"#{executing_rubocop_output}\""
-  success_rubocop_output.split("\n").each do |string|
-    step "the output should contain \"#{string}\""
-  end
+def executing_style_guide
+  "executing 'rubocop .'"
+end
+
+def style_guide_output
+  `cd spec/fixtures/ && rubocop #{@filename}`
 end
