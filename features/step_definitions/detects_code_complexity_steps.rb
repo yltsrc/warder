@@ -1,11 +1,10 @@
-Then(/^warder detects code complexity$/) do
-  executing_flog_output = "executing 'flog -a -c -g -m .'"
-  success_flog_output = `cd spec/fixtures/ && flog  -a -c -g -m ./#{@filename}`
-  step "the output should contain \"#{executing_flog_output}\""
-  success_flog_output
+def executing_code_complexity
+  "executing 'flog -a -c -g -m .'"
+end
+
+def code_complexity_output
+  `cd spec/fixtures/ && flog -a -c -g -m ./#{@filename}`
     .split("\n")
     .reject { |line| line.match(/total|average/) }
-    .each do |string|
-    step "the output should contain \"#{string}\""
-  end
+    .join("\n")
 end

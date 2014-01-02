@@ -6,13 +6,13 @@ Feature: check style guide
   Scenario: run warder with enabled style guide option
     Given I have valid file in directory
     When I run `warder --style-guide`
-    Then warder validates style guide
+    Then warder detects style guide issues
     Then the exit status should be 0
 
   Scenario: run warder with enabled style guide option on invalid file
     Given I have invalid_style_guide file in directory
     When I run `warder --style-guide`
-    Then warder validates style guide
+    Then warder detects style guide issues
     Then the exit status should be 1
 
   Scenario: run warder with enabled style guide option on valid file only

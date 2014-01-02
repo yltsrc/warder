@@ -3,12 +3,15 @@ module Warder
   class Runner
     SCORE = 30
 
-    def perform
-      puts "executing '#{command}'\n"
-      code = 0
-      IO.popen(command).each do |line|
-        print line if printable?(line)
+    def initialize(options = {})
+      @options = options
+    end
 
+    def perform
+      puts "executing '#{command_with_options}'\n"
+      code = 0
+      IO.popen(command_with_options).each do |line|
+        print line if printable?(line)
         code = 1 if failed?(line)
       end
       code
@@ -16,8 +19,13 @@ module Warder
 
     private
 
+    def command_with_options
+      "#{self.class::COMMAND_NAME} #{@options.files}"
+    end
+
     def failed?(line)
-      false
+      match = line.match(self.class::FAILURE_REGEXP)
+      match && match[1].to_i != 0
     end
 
     def printable?(line)
