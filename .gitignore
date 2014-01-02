@@ -6,6 +6,7 @@
 .ruby-version
 .ruby-gemset
 Gemfile.lock
+TODO.md
 InstalledFiles
 _yardoc
 coverage
