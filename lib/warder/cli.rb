@@ -2,7 +2,6 @@ module Warder
   # responsible for executing warder tools
   class CLI
     def initialize(options)
-      options[:files] = '.' if options[:files].empty?
       @options = OpenStruct.new(options)
     end
 

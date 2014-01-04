@@ -40,6 +40,6 @@ OptionParser.new do |opts|
   end
 end.parse!
 
-options[:files] = ARGV.join(' ')
+options[:files] = ARGV.empty? ? '.' : ARGV.join(' ')
 
 Warder::CLI.new(options).perform

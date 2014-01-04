@@ -5,19 +5,25 @@ module Warder
 
     def initialize(options = {})
       @options = options
+      @exit_code = 0
     end
 
     def perform
-      puts "executing '#{command_with_options}'\n"
-      code = 0
-      IO.popen(command_with_options).each do |line|
+      run_command do |line|
         print line if printable?(line)
-        code = 1 if failed?(line)
+        @exit_code = 1 if failed?(line)
       end
-      code
+      @exit_code
     end
 
     private
+
+    def run_command
+      puts "executing '#{command_with_options}'\n"
+      IO.popen(command_with_options).each do |line|
+        yield(line)
+      end
+    end
 
     def command_with_options
       "#{self.class::COMMAND_NAME} #{@options.files}"
@@ -28,7 +34,7 @@ module Warder
       match && match[1].to_i != 0
     end
 
-    def printable?(line)
+    def printable?(*)
       true
     end
   end
