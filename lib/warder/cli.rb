@@ -10,7 +10,8 @@ module Warder
              perform_magick_numbers_validation +
              perform_code_duplication_validation +
              perform_code_smells_validation +
-             perform_code_complexity_validation
+             perform_code_complexity_validation +
+             perform_bundle_freshness_validation
     end
 
     private
@@ -54,6 +55,15 @@ module Warder
     def perform_code_complexity_validation
       if @options.code_complexity
         runner = CodeComplexityRunner.new(@options)
+        runner.perform
+      else
+        0
+      end
+    end
+
+    def perform_bundle_freshness_validation
+      if @options.bundle_audit
+        runner = BundleAuditRunner.new(@options)
         runner.perform
       else
         0
