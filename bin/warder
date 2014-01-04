@@ -34,6 +34,11 @@ OptionParser.new do |opts|
     options[:code_complexity] = value
   end
 
+  desc = 'Run bundle freshness validation'
+  opts.on('-b', '--[no-]bundle-audit', desc) do |value|
+    options[:bundle_audit] = value
+  end
+
   opts.on('-v', '--version', 'Show version') do |value|
     puts Warder::VERSION
     exit 0

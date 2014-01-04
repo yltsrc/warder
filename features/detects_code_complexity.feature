@@ -27,4 +27,3 @@ Feature: detects code complexity
     When I run `warder --no-code-complexity`
     Then warder does nothing
     Then the exit status should be 0
-
