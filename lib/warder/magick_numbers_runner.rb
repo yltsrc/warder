@@ -5,7 +5,7 @@ module Warder
 
     private
 
-    def failed?(line)
+    def failed?(*)
       true
     end
   end

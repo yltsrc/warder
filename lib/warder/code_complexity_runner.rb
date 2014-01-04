@@ -3,6 +3,7 @@ module Warder
   class CodeComplexityRunner < Runner
     FLOG_SCORE = SCORE
     COMMAND_NAME = 'flog'
+    TOTAL_REGEXP = /^\s+\d+.\d+\:.*(total|average)$/
 
     private
 
@@ -21,7 +22,7 @@ module Warder
     end
 
     def total?(line)
-      line.match(/^\s+\d+.\d+\:.*(total|average)$/)
+      TOTAL_REGEXP.match(line)
     end
   end
 end
