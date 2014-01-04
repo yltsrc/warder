@@ -30,7 +30,7 @@ module Warder
     end
 
     def failed?(line)
-      match = line.match(self.class::FAILURE_REGEXP)
+      match = self.class::FAILURE_REGEXP.match(line)
       match && match[1].to_i != 0
     end
 

@@ -3,6 +3,7 @@ module Warder
   class CodeComplexityRunner < Runner
     FLOG_SCORE = SCORE
     COMMAND_NAME = 'flog'
+    FAILURE_REGEXP = /^\s+(\d+.\d+)\:\s.*$/
     TOTAL_REGEXP = /^\s+\d+.\d+\:.*(total|average)$/
 
     private
@@ -12,7 +13,7 @@ module Warder
     end
 
     def failed?(line)
-      match = line.match(/^\s+(\d+.\d+)\:\s.*$/)
+      match = FAILURE_REGEXP.match(line)
       return false if total?(line)
       match && match[1].to_f > FLOG_SCORE
     end
