@@ -1,6 +1,6 @@
 # Warder
 
-[![Travis CI](https://travis-ci.org/yltsrc/warder.png)](https://travis-ci.org/yltsrc/warder)
+[![Build Status](https://travis-ci.org/yltsrc/warder.png?branch=master)](https://travis-ci.org/yltsrc/warder)
 [![Code Climate](https://codeclimate.com/github/yltsrc/warder.png)](https://codeclimate.com/github/yltsrc/warder)
 
 TODO: Write a gem description
