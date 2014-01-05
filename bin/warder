@@ -1,50 +1,7 @@
 #!/usr/bin/env ruby
 
-$LOAD_PATH.unshift(File.expand_path('../../lib', __FILE__))
+lib = File.expand_path('../../lib', __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
-require 'optparse'
 require 'warder'
-
-options = {}
-OptionParser.new do |opts|
-  opts.banner = 'Usage: warder [options] [dir1 file1 file2 ...]'
-
-  desc = 'Run style guide validation'
-  opts.on('-g', '--[no-]style-guide', desc) do |value|
-    options[:style_guide] = value
-  end
-
-  desc = 'Run magick numbers validation'
-  opts.on('-m', '--[no-]magick-numbers', desc) do |value|
-    options[:magick_numbers] = value
-  end
-
-  desc = 'Run code duplication validation'
-  opts.on('-d', '--[no-]code-duplication', desc) do |value|
-    options[:code_duplication] = value
-  end
-
-  desc = 'Run code smells validation'
-  opts.on('-s', '--[no-]code-smells', desc) do |value|
-    options[:code_smells] = value
-  end
-
-  desc = 'Run code complexity validation'
-  opts.on('-c', '--[no-]code-complexity', desc) do |value|
-    options[:code_complexity] = value
-  end
-
-  desc = 'Run bundle freshness validation'
-  opts.on('-b', '--[no-]bundle-audit', desc) do |value|
-    options[:bundle_audit] = value
-  end
-
-  opts.on('-v', '--version', 'Show version') do |value|
-    puts Warder::VERSION
-    exit 0
-  end
-end.parse!
-
-options[:files] = ARGV.empty? ? '.' : ARGV.join(' ')
-
-Warder::CLI.new(options).perform
+Warder::CLI.new(ARGV).execute!

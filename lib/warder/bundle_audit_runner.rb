@@ -1,7 +1,9 @@
 module Warder
   # responsible for run bundle freshness validation
   class BundleAuditRunner < Runner
-    CLI_OPTION = 'bundle-audit'
+    CLI_OPTION = 'b'
+    CLI_FULL_OPTION = 'bundle-audit'
+    DESCRIPTION = 'Run bundle freshness validation'
     COMMAND_NAME = 'bundle-audit'
     FAILURE_REGEXP = /Unpatched versions found!/
 

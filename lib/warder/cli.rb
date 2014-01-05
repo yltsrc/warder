@@ -1,24 +1,38 @@
 module Warder
   # responsible for executing warder tools
   class CLI
-    def initialize(options)
-      @options = OpenStruct.new(options)
+    def initialize(argv, stdin = STDIN, stdout = STDOUT,
+                   stderr = STDERR, kernel = Kernel)
+      @argv = argv
+      @stdin = stdin
+      @stdout = stdout
+      @stderr = stderr
+      @kernel = kernel
     end
 
-    def perform
-      exit_codes = Warder.constants.grep(/\w+Runner/).map do |validator|
-        perform_validation(validator)
-      end
-      exit exit_codes.compact.inject(0, :+)
+    def execute!
+      @kernel.exit execute
     end
 
     private
 
-    def perform_validation(name)
-      validator = Warder.const_get(name)
-      key = validator::CLI_OPTION.gsub('-', '_')
+    def execute
+      parse_arguments
+      exit_codes = Warder.validators.map do |validator|
+        perform_validation(validator)
+      end
+      exit_codes.compact.inject(0, :+)
+    end
+
+    def parse_arguments
+      args = Arguments.new(@argv, @stdout, @kernel)
+      @options = args.parse
+    end
+
+    def perform_validation(validator)
+      key = validator::CLI_OPTION
       if @options.send(key)
-        runner = validator.new(@options)
+        runner = validator.new(@stdout, @options)
         runner.perform
       end
     end
