@@ -1,7 +1,9 @@
 module Warder
   # responsible for run code complexity validation
   class CodeComplexityRunner < Runner
-    CLI_OPTION = 'code-complexity'
+    CLI_OPTION = 'c'
+    CLI_FULL_OPTION = 'code-complexity'
+    DESCRIPTION = 'Run code complexity validation'
     COMMAND_NAME = 'flog'
     FLOG_SCORE = SCORE
     FAILURE_REGEXP = /^\s+(\d+.\d+)\:\s.*$/

@@ -3,14 +3,15 @@ module Warder
   class Runner
     SCORE = 30
 
-    def initialize(options = {})
+    def initialize(stdout, options = {})
+      @stdout = stdout
       @options = options
       @exit_code = 0
     end
 
     def perform
       run_command do |line|
-        print line if printable?(line)
+        @stdout.puts(line) if printable?(line)
         @exit_code = 1 if failed?(line)
       end
       @exit_code
@@ -19,7 +20,7 @@ module Warder
     private
 
     def run_command
-      puts "executing '#{command_with_options}'\n"
+      @stdout.puts "executing '#{command_with_options}'\n"
       IO.popen(command_with_options).each do |line|
         yield(line)
       end
