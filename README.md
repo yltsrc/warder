@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/yltsrc/warder.png?branch=master)](https://travis-ci.org/yltsrc/warder)
 [![Code Climate](https://codeclimate.com/github/yltsrc/warder.png)](https://codeclimate.com/github/yltsrc/warder)
+[![Dependency Status](https://gemnasium.com/yltsrc/warder.png)](https://gemnasium.com/yltsrc/warder)
 
 TODO: Write a gem description
 
