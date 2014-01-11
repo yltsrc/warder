@@ -17,10 +17,10 @@ Then(/^warder does nothing$/) do
 end
 
 Then(/^warder detects (.+) issues$/) do |what|
-  executing_output = send(:"executing_#{what.sub(' ', '_')}")
+  executing_output = send(:"executing_#{what.gsub(' ', '_')}")
   step "the output should contain \"#{executing_output}\""
 
-  validation_output = send(:"#{what.sub(' ', '_')}_output")
+  validation_output = send(:"#{what.gsub(' ', '_')}_output")
   validation_output.split("\n").each do |string|
     step "the output should contain \"#{string}\""
   end
