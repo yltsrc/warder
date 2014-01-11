@@ -3,7 +3,7 @@ module Warder
   class RailsSecurityRunner < Runner
     CLI_OPTION = 'i'
     CLI_FULL_OPTION = 'rails-security'
-    DESCRIPTION = 'Run magick numbers validation'
+    DESCRIPTION = 'Run rails security validation'
     COMMAND_NAME = 'brakeman'
     FAILURE_REGEXP = /^\| Security Warnings \| (\d)+/
     PRINTABLE_REGEXP = /^(\+|\||View Warnings:)/
