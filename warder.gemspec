@@ -26,8 +26,8 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'mago'
   spec.add_dependency 'brakeman'
   spec.add_dependency 'rails_best_practices'
+  spec.add_dependency 'sandi_meter'
   spec.add_dependency 'bundler-audit'
-  # spec.add_dependency 'sandi_meter'
 
   spec.add_development_dependency 'bundler', '~> 1.3'
   spec.add_development_dependency 'rake'

@@ -16,7 +16,7 @@ Then(/^warder does nothing$/) do
   step 'the output should match /.{0}/'
 end
 
-Then(/^warder detects (.+) issues$/) do |what|
+Then(/^warder detects (.+) (issues|violations)$/) do |what, _|
   executing_output = send(:"executing_#{what.gsub(' ', '_')}")
   step "the output should contain \"#{executing_output}\""
 

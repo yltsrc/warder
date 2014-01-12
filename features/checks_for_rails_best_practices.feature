@@ -1,5 +1,5 @@
-Feature: checks for rails related security issues
-  In order to find security issues
+Feature: checks for rails best practices advices
+  In order to get rails advices
   As a ruby developer
   I want to run warder with --rails-advice option
 
