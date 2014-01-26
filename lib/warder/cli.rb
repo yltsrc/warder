@@ -30,7 +30,8 @@ module Warder
     end
 
     def perform_validation(validator)
-      key = validator::CLI_OPTION
+      key = validator::CLI_FULL_OPTION
+
       if @options.send(key)
         runner = validator.new(@stdout, @options)
         runner.perform

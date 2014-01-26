@@ -21,14 +21,42 @@ module Warder
 
       def parse_options
         OptionParser.new do |opts|
-          opts.banner = 'Usage: warder [options] [dir1 file1 file2 ...]'
+          combined(opts)
           validators(opts)
-          version(opts)
         end.parse!(@argv)
       end
 
       def assign_files
         @options['files'] = @argv.empty? ? '.' : @argv.join(' ')
+      end
+
+      def combined(opts)
+        version(opts)
+        opts.banner = 'Usage: warder [options] [dir1 file1 file2 ...]'
+        rails(opts)
+      end
+
+      def version(opts)
+        opts.on('-v', '--version', 'Show version') do |value|
+          @stdout.puts Warder::VERSION
+          @kernel.exit 0
+        end
+      end
+
+      def rails(opts)
+        desc = 'Run rails related validators'
+        opts.on('-R', '--[no-]rails', desc) do |value|
+          rails_validators(value)
+        end
+      end
+
+      def rails_validators(value)
+        Warder.validators.each do |validator|
+          full_option = validator::CLI_FULL_OPTION
+          if validator.to_s.match(/\AWarder::Rails/)
+            @options[full_option] = value
+          end
+        end
       end
 
       def validators(opts)
@@ -43,14 +71,7 @@ module Warder
         desc = validator::DESCRIPTION
 
         opts.on("-#{option}", "--[no-]#{full_option}", desc) do |value|
-          @options[option] = value
-        end
-      end
-
-      def version(opts)
-        opts.on('-v', '--version', 'Show version') do |value|
-          @stdout.puts Warder::VERSION
-          @kernel.exit 0
+          @options[full_option] = value
         end
       end
     end
