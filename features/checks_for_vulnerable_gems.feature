@@ -4,19 +4,22 @@ Feature: checks for vulnerable gems
   I want to run warder with --bundle-audit option
 
   Scenario: run warder with enabled bundle audit option
-    Given I have valid gemfile in directory
+    Given I have valid_rails_app project in directory
+    And I am on project directory
     When I run `warder --bundle-audit`
     Then warder detects gem freshness issues
     Then the exit status should be 0
 
   Scenario: run warder with enabled bundle audit option on invalid file
-    Given I have invalid gemfile in directory
+    Given I have invalid_rails_app project in directory
+    And I am on project directory
     When I run `warder --bundle-audit`
     Then warder detects gem freshness issues
     Then the exit status should be 1
 
   Scenario: run warder with disabled bundle audit option on invalid file
-    Given I have invalid gemfile in directory
+    Given I have invalid_rails_app project in directory
+    And I am on project directory
     When I run `warder --no-bundle-audit`
     Then warder does nothing
     Then the exit status should be 0

@@ -9,4 +9,5 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Valid::Application.config.secret_key_base = SecureRandom.hex(32)
+TOKEN_LENGTH = 32
+Valid::Application.config.secret_key_base = SecureRandom.hex(TOKEN_LENGTH)

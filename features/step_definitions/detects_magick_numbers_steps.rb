@@ -3,5 +3,5 @@ def executing_magick_numbers
 end
 
 def magick_numbers_output
-  `cd spec/fixtures/ && mago #{@filename}`
+  command_output_for_project_or_file('mago')
 end

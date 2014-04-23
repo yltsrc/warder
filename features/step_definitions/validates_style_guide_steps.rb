@@ -3,5 +3,5 @@ def executing_style_guide
 end
 
 def style_guide_output
-  `cd spec/fixtures/ && rubocop #{@filename}`
+  command_output_for_project_or_file('rubocop')
 end

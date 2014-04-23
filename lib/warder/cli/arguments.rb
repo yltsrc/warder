@@ -33,6 +33,7 @@ module Warder
       def combined(opts)
         version(opts)
         opts.banner = 'Usage: warder [options] [dir1 file1 file2 ...]'
+        all(opts)
         rails(opts)
       end
 
@@ -40,6 +41,19 @@ module Warder
         opts.on('-v', '--version', 'Show version') do |value|
           @stdout.puts Warder::VERSION
           @kernel.exit 0
+        end
+      end
+
+      def all(opts)
+        opts.on('-A', '--all', 'Run all validators') do |value|
+          all_validators(value)
+        end
+      end
+
+      def all_validators(value)
+        Warder.validators.each do |validator|
+          full_option = validator::CLI_FULL_OPTION
+          @options[full_option] = value
         end
       end
 

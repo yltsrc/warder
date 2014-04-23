@@ -3,8 +3,9 @@ def executing_code_complexity
 end
 
 def code_complexity_output
-  `cd spec/fixtures/ && flog -a -c -g -m ./#{@filename}`
-    .split("\n")
-    .reject { |line| line.match(/total|average/) }
-    .join("\n")
+  raw_output = command_output_for_project_or_file('flog -a -c -g -m')
+  raw_output.split("\n").reject do |line|
+    /total|average/.match(line) ||
+      Warder::CodeComplexityRunner::FLOG_SCORE > line.to_i
+  end.join("\n")
 end

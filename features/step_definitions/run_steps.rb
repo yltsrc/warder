@@ -25,3 +25,13 @@ Then(/^warder detects (.+) (issues|violations)$/) do |what, _|
     step "the output should contain \"#{string}\""
   end
 end
+
+def command_output_for_project_or_file(cmd)
+  if @filename
+    `cd spec/fixtures/ && #{cmd} ./#{@filename}`
+  elsif @projectname
+    `cd spec/fixtures/#{@projectname} && #{cmd} ./`
+  else
+    fail NotImplementedError
+  end
+end

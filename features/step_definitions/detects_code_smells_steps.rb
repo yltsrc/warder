@@ -3,5 +3,5 @@ def executing_code_smells
 end
 
 def code_smells_output
-  `cd spec/fixtures/ && reek #{@filename}`
+  command_output_for_project_or_file('reek')
 end

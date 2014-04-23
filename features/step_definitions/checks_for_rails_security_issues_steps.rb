@@ -11,7 +11,9 @@ end
 
 Given(/^I have ((in)?valid_rails_app) project in directory$/) do |name, _|
   @projectname = name
-  FileUtils.ln_s "../../spec/fixtures/#{@projectname}", 'tmp/aruba/'
+  FileUtils.cp_r "spec/fixtures/#{@projectname}", 'tmp/aruba/'
+  FileUtils.mv "tmp/aruba/#{@projectname}/Gemfile_lock",
+               "tmp/aruba/#{@projectname}/Gemfile.lock"
   expect(`ls tmp/aruba`).to match(@projectname)
 end
 

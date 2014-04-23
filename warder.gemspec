@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Warder::VERSION
   spec.authors       = ['Yura Tolstik']
   spec.email         = ['yltsrc@gmail.com']
-  spec.description   = %q{Warder of ruby code}
-  spec.summary       = %q{Tool to help improve the quality of ruby code}
+  spec.description   = %q(Warder of ruby code)
+  spec.summary       = %q(Tool to help improve the quality of ruby code)
   spec.homepage      = 'https://github.com/yltsrc/warder'
   spec.license       = 'MIT'
 
