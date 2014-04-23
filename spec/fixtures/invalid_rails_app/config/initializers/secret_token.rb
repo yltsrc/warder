@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Invalid::Application.config.secret_key_base = '5ad3a18ee258ed8a5ff14aa38324b4088ac59fef42a56af0ef4e4f3dc1106413627eb3c1d68faa03affb2bef74a0f4cb053fa19334e6ae41ec24c2ed3540f5d4'
+Valid::Application.config.secret_key_base = SecureRandom.hex(32)

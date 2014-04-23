@@ -5,6 +5,6 @@ module Warder
     CLI_FULL_OPTION = 'style-guide'
     DESCRIPTION = 'Run style guide validation'
     COMMAND_NAME = 'rubocop'
-    FAILURE_REGEXP = /(\d+|no) offence/
+    FAILURE_REGEXP = /(\d+|no) offense/
   end
 end

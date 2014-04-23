@@ -3,5 +3,5 @@ def executing_code_duplication
 end
 
 def code_duplication_output
-  `cd spec/fixtures/ && flay -d ./#{@filename}`
+  command_output_for_project_or_file('flay -d')
 end
