@@ -1,5 +1,5 @@
 def executing_code_smells
-  "executing 'reek .'"
+  "executing 'reek --no-color .'"
 end
 
 def code_smells_output
