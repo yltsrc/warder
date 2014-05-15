@@ -1,5 +1,5 @@
 def executing_style_guide
-  "executing 'rubocop .'"
+  "executing 'rubocop --no-color .'"
 end
 
 def style_guide_output

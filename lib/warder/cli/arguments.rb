@@ -38,7 +38,7 @@ module Warder
       end
 
       def version(opts)
-        opts.on('-v', '--version', 'Show version') do |value|
+        opts.on('-v', '--version', 'Show version') do |_|
           @stdout.puts Warder::VERSION
           @kernel.exit 0
         end
