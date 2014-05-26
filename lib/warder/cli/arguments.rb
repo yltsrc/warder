@@ -66,10 +66,9 @@ module Warder
 
       def rails_validators(value)
         Warder.validators.each do |validator|
+          next unless validator.to_s.match(/\AWarder::Rails/)
           full_option = validator::CLI_FULL_OPTION
-          if validator.to_s.match(/\AWarder::Rails/)
-            @options[full_option] = value
-          end
+          @options[full_option] = value
         end
       end
 
