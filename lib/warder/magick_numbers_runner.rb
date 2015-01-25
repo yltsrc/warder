@@ -8,8 +8,8 @@ module Warder
 
     private
 
-    def failed?(*)
-      true
+    def number_of_issues(_line)
+      1
     end
   end
 end

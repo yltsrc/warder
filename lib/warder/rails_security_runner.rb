@@ -5,8 +5,9 @@ module Warder
     CLI_FULL_OPTION = 'rails-security'
     DESCRIPTION = 'Run rails security validation'
     COMMAND_NAME = 'brakeman'
-    FAILURE_REGEXP = /^\| Security Warnings \| (\d)+/
-    PRINTABLE_REGEXP = /^(\+|\||View Warnings:)/
+    FAILURE_REGEXP = /^\| (High|Medium|Weak)/
+    PRINTABLE_REGEXP =
+      /(\| Confidence)|(\| High)|(\| Medium)|(\| Weak)|(\+------------\+)/
 
     private
 
@@ -16,7 +17,11 @@ module Warder
     end
 
     def printable?(line)
-      PRINTABLE_REGEXP.match(line)
+      super && PRINTABLE_REGEXP.match(line)
+    end
+
+    def number_of_issues(line)
+      FAILURE_REGEXP.match(line) ? 1 : 0
     end
   end
 end

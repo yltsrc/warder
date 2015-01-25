@@ -16,13 +16,13 @@ Then(/^warder does nothing$/) do
   step 'the output should match /.{0}/'
 end
 
-Then(/^warder detects (.+) (issues|violations)$/) do |what, _|
+Then(/^warder detects( no)? (.+) (issues|violations)$/) do |no, what, _|
   executing_output = send(:"executing_#{what.gsub(' ', '_')}")
-  step "the output should contain \"#{executing_output}\""
+  step "the output should#{' not' if no} contain \"#{executing_output}\""
 
   validation_output = send(:"#{what.gsub(' ', '_')}_output")
   validation_output.split("\n").each do |string|
-    step "the output should contain \"#{string}\""
+    step "the output should#{' not' if no} contain \"#{string}\""
   end
 end
 

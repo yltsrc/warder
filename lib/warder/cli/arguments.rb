@@ -21,6 +21,8 @@ module Warder
 
       def parse_options
         OptionParser.new do |opts|
+          quiet(opts)
+          stats(opts)
           combined(opts)
           validators(opts)
         end.parse!(@argv)
@@ -41,6 +43,18 @@ module Warder
         opts.on('-v', '--version', 'Show version') do |_|
           @stdout.puts Warder::VERSION
           @kernel.exit 0
+        end
+      end
+
+      def quiet(opts)
+        opts.on('-q', '--quiet', 'Do not echo validators output.') do
+          @options['quiet'] = true
+        end
+      end
+
+      def stats(opts)
+        opts.on('-t', '--[no-]stats', 'Print statistics.') do |value|
+          @options['stats'] = value
         end
       end
 

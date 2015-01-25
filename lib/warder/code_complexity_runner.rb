@@ -5,8 +5,8 @@ module Warder
     CLI_FULL_OPTION = 'code-complexity'
     DESCRIPTION = 'Run code complexity validation'
     COMMAND_NAME = 'flog'
-    FLOG_SCORE = SCORE
-    FAILURE_REGEXP = /^\s+(\d+.\d+)\:\s.*$/
+    FAILURE_THRESHOLD = SCORE
+    FAILURE_REGEXP = /^\s+(?<issues>\d+.\d+)\:\s.*$/
     TOTAL_REGEXP = /^\s+\d+.\d+\:.*(total|average)$/
 
     private
@@ -15,14 +15,17 @@ module Warder
       "#{COMMAND_NAME} -a -c -g -m #{@options.files}"
     end
 
+    def number_of_issues(line)
+      return 0 if total?(line)
+      super
+    end
+
     def failed?(line)
-      match = FAILURE_REGEXP.match(line)
-      return false if total?(line)
-      match && match[1].to_f > FLOG_SCORE
+      number_of_issues(line) != 0
     end
 
     def printable?(line)
-      failed?(line)
+      super && failed?(line)
     end
 
     def total?(line)
