@@ -6,7 +6,7 @@ module Warder
     DESCRIPTION = 'Run code duplication validation'
     COMMAND_NAME = 'flay'
     FLAY_SCORE = SCORE / 2
-    FAILURE_REGEXP = /Total score \(lower is better\) = (\d+)/
+    FAILURE_REGEXP = /code found in :\w+ \(mass(\*\d+)? = (?<issues>\d+)\)/
 
     private
 

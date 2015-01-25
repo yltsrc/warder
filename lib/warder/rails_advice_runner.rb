@@ -5,13 +5,20 @@ module Warder
     CLI_FULL_OPTION = 'rails-advice'
     DESCRIPTION = 'Run rails best practices validation'
     COMMAND_NAME = 'rails_best_practices'
-    FAILURE_REGEXP = /Found (\d+) warnings?/
+    COMMAND_OPTIONS = '--without-color --silent --spec --test --features'
+    FAILURE_REGEXP = /Found (?<issues>\d+) warnings?/
 
     private
 
+    attr_reader :stats_msg
+
     def command_with_options
       path = @options.files.split(' ').first
-      "#{COMMAND_NAME} --silent --spec --test --features #{path}"
+      "#{COMMAND_NAME} #{COMMAND_OPTIONS} #{path}"
+    end
+
+    def printable?(line)
+      super && !FAILURE_REGEXP.match(line)
     end
   end
 end

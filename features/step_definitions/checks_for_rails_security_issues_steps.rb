@@ -3,9 +3,10 @@ def executing_rails_security
 end
 
 def rails_security_output
+  regexp = Warder::RailsSecurityRunner::PRINTABLE_REGEXP
   `cd tmp/aruba/#{@projectname}/ && brakeman -q -p .`
     .split("\n")
-    .reject { |line| !line.match(/^\+|\|/) }
+    .reject { |line| !regexp.match(line) }
     .join("\n")
 end
 
