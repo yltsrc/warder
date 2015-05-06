@@ -11,7 +11,13 @@ module Warder
     private
 
     def command_with_options
-      "#{COMMAND_NAME} -d -m #{FLAY_SCORE} #{@options.files}"
+      "#{COMMAND_NAME} -d -m #{flay_score} #{@options.files}"
+    end
+
+    def flay_score
+      env_flay_score = ENV['FLAY_SCORE']
+      return self.class::FLAY_SCORE unless env_flay_score
+      env_flay_score.to_i
     end
   end
 end
