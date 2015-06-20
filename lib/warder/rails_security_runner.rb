@@ -17,11 +17,11 @@ module Warder
     end
 
     def printable?(line)
-      super && PRINTABLE_REGEXP.match(line)
+      super && self.class::PRINTABLE_REGEXP.match(line)
     end
 
     def number_of_issues(line)
-      FAILURE_REGEXP.match(line) ? 1 : 0
+      self.class::FAILURE_REGEXP.match(line) ? 1 : 0
     end
   end
 end
