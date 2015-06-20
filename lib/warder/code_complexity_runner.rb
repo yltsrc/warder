@@ -29,7 +29,7 @@ module Warder
     end
 
     def total?(line)
-      TOTAL_REGEXP.match(line)
+      self.class::TOTAL_REGEXP.match(line)
     end
   end
 end

@@ -1,5 +1,5 @@
 module Warder
-  # responsible for executing warder tools
+  # responsible for cli integration
   class CLI
     def initialize(argv, stdin = STDIN, stdout = STDOUT,
                    stderr = STDERR, kernel = Kernel)

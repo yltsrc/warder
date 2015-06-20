@@ -1,6 +1,7 @@
 require 'optparse'
 
 module Warder
+  # responsible for hiding arguments from global scope
   class CLI
     # responsible for parsing cli arguments
     class Arguments
