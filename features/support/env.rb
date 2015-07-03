@@ -1,5 +1,6 @@
+require 'aruba'
 require 'aruba/cucumber'
-require 'aruba/in_process'
+require 'aruba/processes/in_process'
 
 require 'simplecov'
 SimpleCov.start do
@@ -16,5 +17,5 @@ ENV['PATH'] = "#{bin_path}#{File::PATH_SEPARATOR}#{ENV['PATH']}"
 
 require 'warder'
 
-Aruba::InProcess.main_class = Warder::CLI
-Aruba.process = Aruba::InProcess
+Aruba.process = Aruba::Processes::InProcess
+Aruba.process.main_class = Warder::CLI
