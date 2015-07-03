@@ -5,7 +5,7 @@ module Warder
     CLI_FULL_OPTION = 'bundle-audit'
     DESCRIPTION = 'Run bundle freshness validation'
     COMMAND_NAME = 'bundle-audit'
-    FAILURE_REGEXP = /(No u|U)npatched versions found/
+    FAILURE_REGEXP = /(No v|V)ulnerabilities found/
 
     private
 

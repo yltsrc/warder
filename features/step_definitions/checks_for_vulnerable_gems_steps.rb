@@ -7,7 +7,7 @@ def gem_freshness_output
     prep = "cd spec/fixtures/#{@projectname}/ && cp Gemfile_lock Gemfile.lock"
     `#{prep} && bundle-audit check; rm -f Gemfile.lock`
       .split("\n")
-      .reject { |line| line.match('patched versions found') }
+      .reject { |line| line.match('ulnerabilities found') }
       .join("\n")
   else
     fail NotImplementedError

@@ -6,5 +6,11 @@ module Warder
     DESCRIPTION = 'Run code smells validation'
     COMMAND_NAME = 'reek --no-color'
     FAILURE_REGEXP = /(?<issues>\d+) warnings?/
+
+    private
+
+    def command_with_options
+      "#{self.class::COMMAND_NAME} #{@options.files} 2>/dev/null"
+    end
   end
 end
