@@ -22,12 +22,12 @@ code, according to style guides, you may want to use
 
 But if you want to see you code OOP-friendly, then you need different approach
 
-    $ warder --code-smells
+    $ warder --code-smell
 
 Next steps for stylish code are:
 
-    $ warder --code-duplication
     $ warder --magick-numbers
+    $ warder --code-duplication
 
 And for OOP-style code next steps will be:
 

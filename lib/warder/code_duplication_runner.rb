@@ -11,7 +11,7 @@ module Warder
     private
 
     def command_with_options
-      "#{COMMAND_NAME} -d -m #{flay_score} #{@options.files}"
+      "#{COMMAND_NAME} -m #{flay_score} #{@options.files}"
     end
 
     def flay_score

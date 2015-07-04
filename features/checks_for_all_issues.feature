@@ -11,7 +11,7 @@ Feature: checks for all issues
     Then warder detects magick numbers issues
     Then warder detects code complexity issues
     Then warder detects code duplication issues
-    Then warder detects code smells issues
+    Then warder detects code smell issues
     Then warder detects sandi rules violations
     Then warder detects rails best practices issues
     Then warder detects rails security issues
@@ -27,7 +27,7 @@ Feature: checks for all issues
     Then warder detects magick numbers issues
     Then warder detects code complexity issues
     Then warder detects code duplication issues
-    Then warder detects code smells issues
+    Then warder detects code smell issues
     Then warder detects sandi rules violations
     Then warder detects rails best practices issues
     Then warder detects rails security issues

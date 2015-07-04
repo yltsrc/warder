@@ -1,9 +1,9 @@
 module Warder
-  # responsible for run code smells validation
-  class CodeSmellsRunner < Runner
+  # responsible for run code smell validation
+  class CodeSmellRunner < Runner
     CLI_OPTION = 's'
-    CLI_FULL_OPTION = 'code-smells'
-    DESCRIPTION = 'Run code smells validation'
+    CLI_FULL_OPTION = 'code-smell'
+    DESCRIPTION = 'Run code smell validation'
     COMMAND_NAME = 'reek --no-color'
     FAILURE_REGEXP = /(?<issues>\d+) warnings?/
 
