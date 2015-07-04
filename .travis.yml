@@ -10,6 +10,6 @@ script:
   - bundle exec warder --style-guide Gemfile Rakefile warder.gemspec bin/ lib/ features/
   - bundle exec warder --magick-numbers Gemfile Rakefile warder.gemspec bin/ lib/ features/
   - bundle exec warder --code-complexity Gemfile Rakefile warder.gemspec bin/ lib/ features/
-  - bundle exec warder --code-smells Gemfile Rakefile warder.gemspec bin/ lib/ features/
+  - bundle exec warder --code-smell Gemfile Rakefile warder.gemspec bin/ lib/ features/
   - bundle exec warder --code-duplication Gemfile Rakefile bin/ lib/ features/
   - bundle exec warder --bundle-audit
