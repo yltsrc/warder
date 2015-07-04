@@ -1,5 +1,5 @@
-Feature: check style guide
-  In order to check style guide
+Feature: check ruby style guide
+  In order to check ruby style guide
   As a ruby developer
   I want to run warder with --style-guide option
 

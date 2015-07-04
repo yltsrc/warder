@@ -10,6 +10,7 @@ require 'warder/rails_security_runner'
 require 'warder/rails_advice_runner'
 require 'warder/sandi_rules_runner'
 require 'warder/bundle_audit_runner'
+require 'warder/coffee_lint_runner'
 require 'warder/cli/arguments'
 require 'warder/cli'
 

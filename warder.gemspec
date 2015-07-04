@@ -19,14 +19,15 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   spec.add_dependency 'rubocop', '~> 0.32'
-  spec.add_dependency 'reek', '~> 3.0'
-  spec.add_dependency 'flay', '~> 2.6.1'
+  spec.add_dependency 'reek', '~> 3.0', '>= 3.0.3'
+  spec.add_dependency 'flay', '~> 2.6', '>= 2.6.1'
   spec.add_dependency 'flog', '~> 4.3'
   spec.add_dependency 'mago', '~> 0.1'
   spec.add_dependency 'brakeman', '~> 3.0'
   spec.add_dependency 'rails_best_practices', '~> 1.15'
   spec.add_dependency 'sandi_meter', '~> 1.2'
   spec.add_dependency 'bundler-audit', '~> 0.3'
+  spec.add_dependency 'coffeelint', '~> 1.10'
 
   spec.add_development_dependency 'bundler', '~> 1.3'
   spec.add_development_dependency 'rake', '~> 10.0'
