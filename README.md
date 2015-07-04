@@ -1,8 +1,8 @@
 # Warder
 
-[![Build Status](https://travis-ci.org/yltsrc/warder.png?branch=master)](https://travis-ci.org/yltsrc/warder)
-[![Code Climate](https://codeclimate.com/github/yltsrc/warder.png)](https://codeclimate.com/github/yltsrc/warder)
-[![Dependency Status](https://gemnasium.com/yltsrc/warder.png)](https://gemnasium.com/yltsrc/warder)
+[![Build Status](https://travis-ci.org/yltsrc/warder.svg?branch=master)](https://travis-ci.org/yltsrc/warder)
+[![Code Climate](https://codeclimate.com/github/yltsrc/warder.svg)](https://codeclimate.com/github/yltsrc/warder)
+[![Dependency Status](https://gemnasium.com/yltsrc/warder.svg)](https://gemnasium.com/yltsrc/warder)
 
 ## Getting started
 
@@ -54,6 +54,10 @@ validators.
 You may also see, how your rails app meets Sandi Metz rules:
 
     $ warder --sandi-rules
+
+You can validate not only ruby files, but also coffeescript files:
+
+    $ warder --coffee-lint
 
 ## Installation
 

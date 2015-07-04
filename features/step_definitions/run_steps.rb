@@ -8,6 +8,7 @@ end
 
 Given(/^I have (\w+) file in directory$/) do |name|
   @filename = "#{name}.rb"
+  @filename = "#{name}.coffee" unless File.exist? "spec/fixtures/#{@filename}"
   FileUtils.ln_s "../../spec/fixtures/#{@filename}", 'tmp/aruba/'
   expect(`ls tmp/aruba`).to match(@filename)
 end
@@ -28,7 +29,7 @@ end
 
 def command_output_for_project_or_file(cmd)
   if @filename
-    `cd spec/fixtures/ && #{cmd} ./#{@filename}`
+    `cd spec/fixtures/ && #{cmd} #{'./' unless cmd == 'reek'}#{@filename}`
   elsif @projectname
     `cd spec/fixtures/#{@projectname} && #{cmd} ./`
   else

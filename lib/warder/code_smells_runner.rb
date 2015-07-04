@@ -10,7 +10,7 @@ module Warder
     private
 
     def command_with_options
-      "#{self.class::COMMAND_NAME} #{@options.files} 2>/dev/null"
+      "#{self.class::COMMAND_NAME} #{@options.files}"
     end
   end
 end

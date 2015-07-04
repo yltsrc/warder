@@ -16,6 +16,7 @@ Feature: checks for all issues
     Then warder detects rails best practices issues
     Then warder detects rails security issues
     Then warder detects gem freshness issues
+    Then warder detects coffee lint issues
     Then the exit status should be 0
 
   Scenario: run warder with enabled rails option on invalid project
@@ -31,4 +32,5 @@ Feature: checks for all issues
     Then warder detects rails best practices issues
     Then warder detects rails security issues
     Then warder detects gem freshness issues
-    Then the exit status should be 9
+    Then warder detects coffee lint issues
+    Then the exit status should be 10
