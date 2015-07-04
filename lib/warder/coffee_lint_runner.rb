@@ -30,8 +30,10 @@ module Warder
       lint_results
     end
 
-    def number_of_issues(line)
-      self.class::FAILURE_REGEXP.match(line) ? 1 : 0
+    def number_of_issues(lines)
+      lines.split("\n").count do |line|
+        self.class::FAILURE_REGEXP.match(line) ? 1 : 0
+      end
     end
   end
 end
