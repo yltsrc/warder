@@ -18,10 +18,10 @@ Then(/^warder does nothing$/) do
 end
 
 Then(/^warder detects( no)? (.+) (issues|violations)$/) do |no, what, _|
-  executing_output = send(:"executing_#{what.gsub(' ', '_')}")
+  executing_output = send(:"executing_#{what.tr(' ', '_')}")
   step "the output should#{' not' if no} contain \"#{executing_output}\""
 
-  validation_output = send(:"#{what.gsub(' ', '_')}_output")
+  validation_output = send(:"#{what.tr(' ', '_')}_output")
   validation_output.split("\n").each do |string|
     step "the output should#{' not' if no} contain \"#{string}\""
   end
