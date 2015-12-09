@@ -19,5 +19,6 @@ Given(/^I have ((in)?valid_rails_app) project in directory$/) do |name, _|
 end
 
 Given(/^I am on project directory$/) do
-  @dirs = ["tmp/aruba/#{@projectname}"]
+  dir = Aruba::ArubaPath.new("tmp/aruba/#{@projectname}")
+  aruba.instance_variable_set('@current_directory', dir)
 end

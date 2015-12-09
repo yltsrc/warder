@@ -17,5 +17,7 @@ ENV['PATH'] = "#{bin_path}#{File::PATH_SEPARATOR}#{ENV['PATH']}"
 
 require 'warder'
 
-Aruba.process = Aruba::Processes::InProcess
-Aruba.process.main_class = Warder::CLI
+Aruba.configure do |config|
+  config.command_launcher = :in_process
+  config.main_class = Warder::CLI
+end

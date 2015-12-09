@@ -18,21 +18,21 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features|cucumber)\/})
   spec.require_paths = ['lib']
 
-  spec.add_dependency 'rubocop', '~> 0.32'
-  spec.add_dependency 'reek', '~> 3.0', '>= 3.0.3'
+  spec.add_dependency 'rubocop', '~> 0.35'
+  spec.add_dependency 'reek', '~> 3.7'
   spec.add_dependency 'flay', '~> 2.6', '>= 2.6.1'
   spec.add_dependency 'flog', '~> 4.3'
   spec.add_dependency 'mago', '~> 0.1'
-  spec.add_dependency 'brakeman', '~> 3.0'
+  spec.add_dependency 'brakeman', '~> 3.1'
   spec.add_dependency 'rails_best_practices', '~> 1.15'
   spec.add_dependency 'sandi_meter', '~> 1.2'
-  spec.add_dependency 'bundler-audit', '~> 0.3'
-  spec.add_dependency 'coffeelint', '~> 1.10'
+  spec.add_dependency 'bundler-audit', '~> 0.4'
+  spec.add_dependency 'coffeelint', '~> 1.14'
 
   spec.add_development_dependency 'bundler', '~> 1.3'
   spec.add_development_dependency 'rake', '~> 10.0'
-  spec.add_development_dependency 'rspec', '~> 3.3'
-  spec.add_development_dependency 'cucumber', '~> 2.0'
-  spec.add_development_dependency 'aruba', '~> 0.7'
-  spec.add_development_dependency 'simplecov', '~> 0.10'
+  spec.add_development_dependency 'rspec', '~> 3.4'
+  spec.add_development_dependency 'cucumber', '~> 2.1'
+  spec.add_development_dependency 'aruba', '~> 0.11'
+  spec.add_development_dependency 'simplecov', '~> 0.11'
 end

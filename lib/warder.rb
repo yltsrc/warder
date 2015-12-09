@@ -11,7 +11,8 @@ require 'warder/rails_advice_runner'
 require 'warder/sandi_rules_runner'
 require 'warder/bundle_audit_runner'
 require 'warder/coffee_lint_runner'
-require 'warder/cli/arguments'
+require 'warder/aruba_app'
+require 'warder/arguments'
 require 'warder/cli'
 
 # scope for validators
