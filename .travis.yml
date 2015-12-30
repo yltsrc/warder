@@ -3,6 +3,7 @@ rvm:
   - 2.0
   - 2.1
   - 2.2
+  - 2.3
 gemfile:
   - Gemfile
 script:
@@ -13,3 +14,4 @@ script:
   - bundle exec warder --code-smell Gemfile Rakefile warder.gemspec bin/ lib/ features/
   - bundle exec warder --code-duplication Gemfile Rakefile bin/ lib/ features/
   - bundle exec warder --bundle-audit
+
