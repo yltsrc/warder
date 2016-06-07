@@ -13,26 +13,25 @@ Gem::Specification.new do |spec|
   spec.homepage      = 'https://github.com/yltsrc/warder'
   spec.license       = 'MIT'
 
-  spec.files         = `git ls-files`.split($RS)
-  spec.executables   = spec.files.grep(%r{^bin\/\w+$}) { |f| File.basename(f) }
-  spec.test_files    = spec.files.grep(%r{^(test|spec|features|cucumber)\/})
+  spec.files         = Dir['{bin,lib}/**/*']
+  spec.executables   = spec.files.grep(%r{^bin/[^.]+$}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
-  spec.add_dependency 'rubocop', '~> 0.35'
-  spec.add_dependency 'reek', '~> 3.7'
-  spec.add_dependency 'flay', '~> 2.6', '>= 2.6.1'
-  spec.add_dependency 'flog', '~> 4.3'
+  spec.add_dependency 'rubocop', '~> 0.40'
+  spec.add_dependency 'reek', '~> 4.0'
+  spec.add_dependency 'flay', '~> 2.8'
+  spec.add_dependency 'flog', '~> 4.4'
   spec.add_dependency 'mago', '~> 0.1'
-  spec.add_dependency 'brakeman', '~> 3.1'
-  spec.add_dependency 'rails_best_practices', '~> 1.15'
+  spec.add_dependency 'brakeman', '~> 3.3'
+  spec.add_dependency 'rails_best_practices', '~> 1.16'
   spec.add_dependency 'sandi_meter', '~> 1.2'
-  spec.add_dependency 'bundler-audit', '~> 0.4'
+  spec.add_dependency 'bundler-audit', '~> 0.5'
   spec.add_dependency 'coffeelint', '~> 1.14'
 
-  spec.add_development_dependency 'bundler', '~> 1.3'
-  spec.add_development_dependency 'rake', '~> 10.0'
+  spec.add_development_dependency 'bundler', '~> 1.7'
+  spec.add_development_dependency 'rake', '~> 11.1'
   spec.add_development_dependency 'rspec', '~> 3.4'
-  spec.add_development_dependency 'cucumber', '~> 2.1'
-  spec.add_development_dependency 'aruba', '~> 0.11'
+  spec.add_development_dependency 'cucumber', '~> 2.3'
+  spec.add_development_dependency 'aruba', '~> 0.14'
   spec.add_development_dependency 'simplecov', '~> 0.11'
 end
