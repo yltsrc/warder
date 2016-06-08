@@ -1,10 +1,10 @@
 module Warder
   # responsible for run Sandi Metz rules validation
   class SandiRulesRunner < Runner
-    CLI_OPTION = 'r'
-    CLI_FULL_OPTION = 'sandi-rules'
-    DESCRIPTION = 'Run Sandi Metz rules validation'
-    COMMAND_NAME = 'sandi_meter'
+    CLI_OPTION = 'r'.freeze
+    CLI_FULL_OPTION = 'sandi-rules'.freeze
+    DESCRIPTION = 'Run Sandi Metz rules validation'.freeze
+    COMMAND_NAME = 'sandi_meter'.freeze
     FAILURE_REGEXP = /\d\. (?<percentage>\d+)%/
     FAILURE_THRESHOLD = 100
 

@@ -1,10 +1,10 @@
 module Warder
   # responsible for run magick numbers validation
   class MagickNumbersRunner < Runner
-    CLI_OPTION = 'm'
-    CLI_FULL_OPTION = 'magick-numbers'
-    DESCRIPTION = 'Run magick numbers validation'
-    COMMAND_NAME = 'mago'
+    CLI_OPTION = 'm'.freeze
+    CLI_FULL_OPTION = 'magick-numbers'.freeze
+    DESCRIPTION = 'Run magick numbers validation'.freeze
+    COMMAND_NAME = 'mago'.freeze
 
     private
 

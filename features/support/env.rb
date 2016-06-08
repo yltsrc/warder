@@ -12,7 +12,7 @@ end
 SimpleCov::MINIMUM_COVERAGE = 100
 SimpleCov.minimum_coverage SimpleCov::MINIMUM_COVERAGE
 
-bin_path = "#{File.expand_path('../../../bin', __FILE__)}"
+bin_path = File.expand_path('../../../bin', __FILE__).to_s
 ENV['PATH'] = "#{bin_path}#{File::PATH_SEPARATOR}#{ENV['PATH']}"
 
 require 'warder'

@@ -1,11 +1,11 @@
 module Warder
   # responsible for run rails best practices validation
   class RailsAdviceRunner < Runner
-    CLI_OPTION = 'a'
-    CLI_FULL_OPTION = 'rails-advice'
-    DESCRIPTION = 'Run rails best practices validation'
-    COMMAND_NAME = 'rails_best_practices'
-    COMMAND_OPTIONS = '--without-color --silent --spec --test --features'
+    CLI_OPTION = 'a'.freeze
+    CLI_FULL_OPTION = 'rails-advice'.freeze
+    DESCRIPTION = 'Run rails best practices validation'.freeze
+    COMMAND_NAME = 'rails_best_practices'.freeze
+    COMMAND_OPTIONS = '--without-color --silent --spec --test --features'.freeze
     FAILURE_REGEXP = /Found (?<issues>\d+) warnings?/
 
     private

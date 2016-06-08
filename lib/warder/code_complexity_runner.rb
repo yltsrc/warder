@@ -1,10 +1,10 @@
 module Warder
   # responsible for run code complexity validation
   class CodeComplexityRunner < Runner
-    CLI_OPTION = 'c'
-    CLI_FULL_OPTION = 'code-complexity'
-    DESCRIPTION = 'Run code complexity validation'
-    COMMAND_NAME = 'flog'
+    CLI_OPTION = 'c'.freeze
+    CLI_FULL_OPTION = 'code-complexity'.freeze
+    DESCRIPTION = 'Run code complexity validation'.freeze
+    COMMAND_NAME = 'flog'.freeze
     FAILURE_THRESHOLD = SCORE
     FAILURE_REGEXP = /^\s+(?<issues>\d+.\d+)\:\s.*$/
     TOTAL_REGEXP = /^\s+\d+.\d+\:.*(total|average)$/

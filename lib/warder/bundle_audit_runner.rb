@@ -1,10 +1,10 @@
 module Warder
   # responsible for run bundle freshness validation
   class BundleAuditRunner < Runner
-    CLI_OPTION = 'b'
-    CLI_FULL_OPTION = 'bundle-audit'
-    DESCRIPTION = 'Run bundle freshness validation'
-    COMMAND_NAME = 'bundle-audit'
+    CLI_OPTION = 'b'.freeze
+    CLI_FULL_OPTION = 'bundle-audit'.freeze
+    DESCRIPTION = 'Run bundle freshness validation'.freeze
+    COMMAND_NAME = 'bundle-audit'.freeze
     FAILURE_REGEXP = /(No v|V)ulnerabilities found/
 
     private
@@ -21,7 +21,7 @@ module Warder
       match = FAILURE_REGEXP.match(line)
       return 0 unless match
       @stats_msg = line
-      match[1].match('No ') ? 0 : 1
+      match[1] =~ /No\s/ ? 0 : 1
     end
 
     def printable?(line)

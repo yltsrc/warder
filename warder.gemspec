@@ -14,7 +14,7 @@ Gem::Specification.new do |spec|
   spec.license       = 'MIT'
 
   spec.files         = Dir['{bin,lib}/**/*']
-  spec.executables   = spec.files.grep(%r{^bin/[^.]+$}) { |f| File.basename(f) }
+  spec.executables   = Dir['{bin}/**/*'].map { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
   spec.add_dependency 'rubocop', '~> 0.40'
@@ -28,7 +28,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'bundler-audit', '~> 0.5'
   spec.add_dependency 'coffeelint', '~> 1.14'
 
-  spec.add_development_dependency 'bundler', '~> 1.7'
+  spec.add_development_dependency 'bundler', '~> 1.12'
   spec.add_development_dependency 'rake', '~> 11.1'
   spec.add_development_dependency 'rspec', '~> 3.4'
   spec.add_development_dependency 'cucumber', '~> 2.3'

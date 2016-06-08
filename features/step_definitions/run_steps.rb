@@ -33,6 +33,6 @@ def command_output_for_project_or_file(cmd)
   elsif @projectname
     `cd spec/fixtures/#{@projectname} && #{cmd} ./`
   else
-    fail NotImplementedError
+    raise(NotImplementedError)
   end
 end

@@ -4,10 +4,10 @@ module Warder
     require 'warder/coffee_lint_runner/lint_runner'
     require 'warder/coffee_lint_runner/message_formatter'
 
-    CLI_OPTION = 'g'
-    CLI_FULL_OPTION = 'coffee-lint'
-    DESCRIPTION = 'Run coffeescript style guide validation'
-    COMMAND_NAME = 'coffeelint'
+    CLI_OPTION = 'g'.freeze
+    CLI_FULL_OPTION = 'coffee-lint'.freeze
+    DESCRIPTION = 'Run coffeescript style guide validation'.freeze
+    COMMAND_NAME = 'coffeelint'.freeze
     FAILURE_REGEXP = /(?<issues>(WARN|ERROR))/
 
     private
@@ -24,7 +24,7 @@ module Warder
     def lint_results
       lint_results = {}
       @options.files.split(' ').each do |filename|
-        next if filename.length == 0
+        next if filename.empty?
         lint_results.merge!(LintRunner.new(filename).result)
       end
       lint_results

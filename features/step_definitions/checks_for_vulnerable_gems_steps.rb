@@ -3,13 +3,10 @@ def executing_gem_freshness
 end
 
 def gem_freshness_output
-  if @projectname
-    prep = "cd spec/fixtures/#{@projectname}/ && cp Gemfile_lock Gemfile.lock"
-    `#{prep} && bundle-audit check; rm -f Gemfile.lock`
-      .split("\n")
-      .reject { |line| line.match('ulnerabilities found') }
-      .join("\n")
-  else
-    fail NotImplementedError
-  end
+  raise(NotImplementedError) unless @projectname
+  prep = "cd spec/fixtures/#{@projectname}/ && cp Gemfile_lock Gemfile.lock"
+  `#{prep} && bundle-audit check; rm -f Gemfile.lock`
+    .split("\n")
+    .reject { |line| line.match('ulnerabilities found') }
+    .join("\n")
 end

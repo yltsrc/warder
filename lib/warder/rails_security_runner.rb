@@ -1,10 +1,10 @@
 module Warder
   # responsible for run rails security validation
   class RailsSecurityRunner < Runner
-    CLI_OPTION = 'i'
-    CLI_FULL_OPTION = 'rails-security'
-    DESCRIPTION = 'Run rails security validation'
-    COMMAND_NAME = 'brakeman'
+    CLI_OPTION = 'i'.freeze
+    CLI_FULL_OPTION = 'rails-security'.freeze
+    DESCRIPTION = 'Run rails security validation'.freeze
+    COMMAND_NAME = 'brakeman'.freeze
     FAILURE_REGEXP = /^\| (High|Medium|Weak)/
     PRINTABLE_REGEXP =
       /(\| Confidence)|(\| High)|(\| Medium)|(\| Weak)|(\+------------\+)/
